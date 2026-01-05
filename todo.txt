@@ -32,7 +32,7 @@
 - install hyprpaper
 - install usbutils pciutils
 - install brightnessctl
-- set git email to 12395610+genogenov@users.noreply.github.com
+- set git email to AND GENERATE SSH WITH 12395610+genogenov@users.noreply.github.com
 - set git name to GGenov
 - set git gpg.format ssh
 - set git user.signingkey
