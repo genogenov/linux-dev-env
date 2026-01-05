@@ -1,0 +1,39 @@
+- install polkit, hyprland
+- install greetd-regreet
+- install alacritty
+- move greetd confing and regreet config to git
+- install pipewire and wireplumber
+- install xdg-desktop-portal-hyprland
+- install notification app (mako_
+- install hyprpolkitagent
+- install mesa, vulkan-intel
+- install code
+- install zsh zsh-completions
+- install openssh
+- install fzf
+- install oh my zsh
+- install gimp
+- pull shift select (oh my zsh)
+- chsh -s /usr/bin/zsh
+- copy alacritty config
+- modprobe configs
+- udev rules
+- grub boot flags
+- pipewire-pulse sof-firmware pwvucontrol hyprpwcenter 
+- wlogout
+- install clipse (default settings)
+- hypridle + hyprlock + their configs
+- waybar + its config
+- hyprland configs
+- install gnome-keyring libsecret
+- install libva-nvidia-driver intel-media-driver lib32-vulkan-intel vulkan-intel nvidia-vaapi-driver
+- install nvtop
+- install nm-applet
+- install hyprpaper
+- install usbutils pciutils
+- install brightnessctl
+- set git email to 12395610+genogenov@users.noreply.github.com
+- set git name to GGenov
+- set git gpg.format ssh
+- set git user.signingkey
+- set git commit.gpgsign
