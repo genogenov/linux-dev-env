@@ -11,7 +11,7 @@
 - install zsh zsh-completions
 - install openssh
 - install fzf
-- install oh my zsh
+- install oh my zsh + .zshrc
 - install gimp
 - pull shift select (oh my zsh)
 - chsh -s /usr/bin/zsh
@@ -37,3 +37,4 @@
 - set git gpg.format ssh
 - set git user.signingkey
 - set git commit.gpgsign
+- copy .profile, .bash_profile, .zprofile to/from repo
