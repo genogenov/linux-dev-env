@@ -1,3 +1,4 @@
+- sudo timedatectl set-ntp true
 - install polkit, hyprland
 - install greetd-regreet
 - install alacritty
