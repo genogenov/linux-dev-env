@@ -148,12 +148,15 @@ _arg_command="$(ops "$_arg_command" "command")" || exit 1
 
 
 # vvv  PLACE YOUR CODE HERE  vvv
+set -euo pipefail
+
 ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )" 
 if [[ -n "$_arg_root_dir" ]]; then
     ROOT_DIR="$_arg_root_dir"
 fi
 
 source "${ROOT_DIR}/scripts/utils.sh"
+source "${ROOT_DIR}/scripts/pkg-install-utils.sh"
 
 handle_error() {
     local exit_code=$?
@@ -172,6 +175,30 @@ warn "Value of 'ROOT_DIR': $ROOT_DIR"
 warn "Value of 'DRY_RUN': $DRY_RUN"
 warn "'dry-run' is $_arg_dry_run"
 warn "Value of 'command': $_arg_command"
+
+
+case "$_arg_command" in
+	install)
+		if read_yes_no "Update system before installing packages?"; then
+		    update_system
+		    success "System packages updated successfully."
+			success
+		else
+		    info "Skipping system update."
+		fi
+		install_packages_from_file "${ROOT_DIR}/pacman-pkgs.txt" "pacman"
+		success
+		success "Pacman packages installed successfully."
+		success
+		install_packages_from_file "${ROOT_DIR}/aur-pkgs.txt" "yay"
+		success
+		success "AUR packages installed successfully."
+		success
+		;;
+	*)
+		die "Unsupported command: $_arg_command"
+		;;
+esac
 # ^^^  TERMINATE YOUR CODE BEFORE THE BOTTOM ARGBASH MARKER  ^^^
 
 # ] <-- needed because of Argbash

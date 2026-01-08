@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
-set -euo pipefail
+[[ -n "${_UTILS_SH_INCLUDED_-}" ]] && return
+_UTILS_SH_INCLUDED_=1
 
 if [[ -t 1 ]]; then
     BOLD="\033[1m";
@@ -28,7 +29,15 @@ run(){
     if $DRY_RUN; then
         info "[DRY RUN] $*"
     else
-        "$@"
+        local exit_code
+        "$@" || exit_code=$? 
+        exit_code=${exit_code:-0}
+
+        if [ $exit_code -ne 0 ]; then
+            error "Error: Command '$*' failed with exit code $exit_code."
+            return $exit_code
+        fi
+        return 0
     fi
 }
 
@@ -47,33 +56,4 @@ read_yes_no() {
                 ;;
         esac
     done
-}
-
-update_system() {
-   info "Updating system packages"
-   run sudo pacman -Syu --noconfirm
-}
-
-install_packages() {
-   local path="$$"
-   if [[ -n "$1" ]]; then
-       error "Package list path not provided";
-         exit 1;
-   fi
-   if [[ ! -f "$1" ]]; then
-       error "Package list file '$1' does not exist";
-         exit 1;
-   fi
-
-   info "Reading package list from ${path}"
-   local packages=()
-   while IFS= read -r line; do
-         # Skip comments and empty lines
-         [[ "$line" =~ ^#.*$ ]] && continue
-         [[ -z "$line" ]] && continue
-         packages+=("$line")
-    done < "${path}"
-   info "Installing packages: ${packages[*]}" 
-
-   run sudo pacman -S --noconfirm --needed "${packages[@]}"
 }
