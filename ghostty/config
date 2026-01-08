@@ -53,3 +53,4 @@ selection-clear-on-copy = true
 shell-integration = zsh
 keybind = "performable:ctrl+shift+c=copy_to_clipboard"
 mouse-shift-capture = never
+background-opacity = 0.95
