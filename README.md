@@ -1,4 +1,4 @@
-# 🐧 Arch Linux Development Environment
+# Arch Linux Development Environment
 
 A comprehensive setup repository for configuring a complete Arch Linux development environment with Hyprland, including automated installation scripts, configuration files, and system optimizations.
 
