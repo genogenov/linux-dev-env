@@ -12,7 +12,7 @@ This repository contains everything needed to set up a fully functional Arch Lin
 - **System configuration files** for various services
 - **Custom shell configurations**
 
-## 🚀 Quick Start
+## :rocket: Quick Start
 
 The main setup script provides three commands for system configuration:
 
@@ -27,7 +27,7 @@ The main setup script provides three commands for system configuration:
 - `-d, --dry-run` - Perform a trial run without making changes
 - `-h, --help` - Display help information
 
-## 📁 Project Structure
+## :file_folder: Project Structure
 
 ```
 linux-dev-env/
@@ -63,12 +63,6 @@ linux-dev-env/
 
 ## ⚙️ Configuration Details
 
-### Greetd Display Manager
-Located in `etc/greetd/`, configured to:
-- Launch Hyprland as the greeter session
-- Run on VT1 with proper user permissions
-- Use custom Hyprland configuration for the login screen
-
 ## 🛠️ Scripts
 
 ### Main Setup Script (`setup-arch`)
@@ -82,14 +76,12 @@ Generated from `setup-arch.m4` using **argbash** for robust argument parsing:
 - `scripts/pkg-install-utils.sh` - Package management utilities
 - `scripts/utils.sh` - General-purpose shell functions
 
-## 📝 Notes
-
+## :memo: Notes
 - This configuration is optimized for systems with **NVIDIA + Intel** hybrid graphics
 - Designed for **Hyprland** wayland compositor
 - Uses **greetd** instead of traditional display managers for better wayland support
 
-## 🔧 Regenerating Setup Script
-
+## :wrench: Regenerating Setup Script
 The setup script is generated using **argbash**:
 
 ```bash
@@ -97,7 +89,7 @@ argbash ./setup-arch -o setup-arch
 chmod +x setup-arch
 ```
 
-## 📄 License
+## :page_facing_up: License
 
 Personal configuration repository. Use at your own discretion.
 
