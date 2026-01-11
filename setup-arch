@@ -192,29 +192,7 @@ install)
 	success "AUR packages installed successfully."
 	success
 
-	info "Installing Oh My Zsh..."
-	if [[ ! -d ~/.oh-my-zsh ]]; then
-		run sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-		success "Oh My Zsh installed successfully."
-	else
-		info "Oh My Zsh is already installed. Skipping installation."
-	fi
-
-	info "Installing Zsh Shift Select Mode plugin..."
-	if [[ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-shift-select ]]; then
-		run git clone https://github.com/jirutka/zsh-shift-select.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-shift-select
-		success "Zsh Shift Select Mode plugin installed successfully."
-	else
-		info "Zsh Shift Select Mode plugin is already installed. Skipping installation."
-	fi
-
-	info "Copying shell profile settings..."
-	run cp -rv $ROOT_DIR/shell/. ~/
-	success "Shell profile settings copied successfully."
-
-	info "Setting Zsh as the default shell..."
-	run chsh -s "$(which zsh)"
-	success "Zsh set as the default shell successfully."
+	run setup_shell
 	;;
 config)
 	info "Copying dot config files..."

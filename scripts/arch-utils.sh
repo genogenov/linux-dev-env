@@ -49,20 +49,6 @@ setup_kernel_modules() {
     fi
 }
 
-setup_udev_rules() {
-    if read_yes_no "Setup udev rules?"; then
-        info "Setting up udev rules..."
-        run sudo cp -rv $ROOT_DIR/udev/rules.d/. /etc/udev/rules.d/
-        success "Udev rules setup successfully."
-        info "Reloading udev rules..."
-        run sudo udevadm control --reload-rules
-        run sudo udevadm trigger
-        success "Udev rules reloaded successfully."
-    else
-        info "Skipping udev rules setup."
-    fi
-}
-
 setup_pacman_mirrorlist() {
     if read_yes_no "Setup pacman mirrorlist (Reflector)?"; then
         info "Setting up pacman mirrorlist..."
@@ -74,6 +60,9 @@ setup_pacman_mirrorlist() {
         info "Generating new mirrorlist with Reflector..."
         run sudo reflector --country 'United States' --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist --verbose --latest 10
         success "Pacman mirrorlist setup successfully."
+        info "Updating pacman database with new mirrorlist..."
+        run sudo pacman -Syy
+        success "Pacman database updated successfully."
     else
         info "Skipping pacman mirrorlist setup."
     fi
