@@ -2,7 +2,7 @@
 
 A comprehensive setup repository for configuring a complete Arch Linux development environment with Hyprland, including automated installation scripts, configuration files, and system optimizations.
 
-## 📋 Overview
+## Overview
 
 This repository contains everything needed to set up a fully functional Arch Linux system with:
 - **Hyprland** wayland compositor
@@ -12,7 +12,7 @@ This repository contains everything needed to set up a fully functional Arch Lin
 - **System configuration files** for various services
 - **Custom shell configurations**
 
-## :rocket: Quick Start
+## Quick Start
 
 The main setup script provides three commands for system configuration:
 
@@ -27,7 +27,7 @@ The main setup script provides three commands for system configuration:
 - `-d, --dry-run` - Perform a trial run without making changes
 - `-h, --help` - Display help information
 
-## :file_folder: Project Structure
+## Project Structure
 
 ```
 linux-dev-env/
@@ -61,9 +61,9 @@ linux-dev-env/
 └── wallpapers/            # Desktop wallpapers collection. AI generated.
 ```
 
-## ⚙️ Configuration Details
+## Configuration Details
 
-## 🛠️ Scripts
+## cripts
 
 ### Main Setup Script (`setup-arch`)
 Generated from `setup-arch.m4` using **argbash** for robust argument parsing:
@@ -76,12 +76,12 @@ Generated from `setup-arch.m4` using **argbash** for robust argument parsing:
 - `scripts/pkg-install-utils.sh` - Package management utilities
 - `scripts/utils.sh` - General-purpose shell functions
 
-## :memo: Notes
+## Notes
 - This configuration is optimized for systems with **NVIDIA + Intel** hybrid graphics
 - Designed for **Hyprland** wayland compositor
 - Uses **greetd** instead of traditional display managers for better wayland support
 
-## :wrench: Regenerating Setup Script
+## Regenerating Setup Script
 The setup script is generated using **argbash**:
 
 ```bash
@@ -89,7 +89,7 @@ argbash ./setup-arch -o setup-arch
 chmod +x setup-arch
 ```
 
-## :page_facing_up: License
+## License
 
 Personal configuration repository. Use at your own discretion.
 
