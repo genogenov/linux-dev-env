@@ -35,7 +35,7 @@ run(){
 
         if [ $exit_code -ne 0 ]; then
             error "Error: Command '$*' failed with exit code $exit_code."
-            return $exit_code
+            exit $exit_code
         fi
         return 0
     fi

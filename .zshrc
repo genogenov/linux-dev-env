@@ -75,10 +75,10 @@ HYPHEN_INSENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-git
-zsh-shift-select
-rust
-fzf
+  git
+  zsh-shift-select
+  rust
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -122,13 +122,13 @@ source $ZSH/oh-my-zsh.sh
 #source /etc/profile.d/vte.sh
 
 # Example for Linux with xclip
-sys-copy-region-as-kill () {
+sys-copy-region-as-kill() {
   zle copy-region-as-kill
-  print -rn -- $CUTBUFFER | xclip -selection clipboard
+  print -rn -- $CUTBUFFER | wl-copy
 }
 
 zle -N sys-copy-region-as-kill
-# bindkey '^[c' sys-copy-region-as-kill # alt+c
-# bindkey '^[w' sys-copy-region-as-kill # alt+w
+bindkey '^[c' sys-copy-region-as-kill # alt+c
+bindkey '^[w' sys-copy-region-as-kill # alt+w
 bindkey ';6u' sys-copy-region-as-kill # ctrls + shift + c
-bindkey '^A' .zle_select-all # Bind Ctrl+A
+bindkey '^A' .zle_select-all          # Bind Ctrl+A

@@ -1,0 +1,105 @@
+* {
+  font-family: JetbrainsMono Nerd Font;
+  font-size: 16px;
+  min-height: 0;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 0px;
+  margin: 0;
+}
+
+#waybar {
+  background: transparent;
+  color: #c6d0f5;
+  margin: 0;
+}
+
+#network {
+ min-width: 210px; 
+}
+
+#workspaces {
+  border-radius: 5px;
+}
+
+#workspaces button {
+  color: #babbf1;
+      font-family: "Cantarell";
+    font-weight: bold;
+    background-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0px;
+    border-radius: 0;
+    padding-left: 5px;
+    padding-right: 2px;
+
+}
+
+#workspaces .workspace-label {
+    padding-left: 3px;
+    border-top: 1px solid transparent;
+}
+
+#workspaces button.active {
+  color: #1e1e1e;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #83c7d3;
+}
+#workspaces .taskbar-window.active {
+    background-color:#4a95a2;
+}
+
+button {
+  background: transparent;
+}
+
+#workspaces button:hover {
+  background: #1e1e1e;
+  border: 0px solid transparent;
+}
+
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#custom-lock,
+#custom-power,
+#custom-weather,
+#custom-uptime,
+#custom-docker,
+#window,
+#windowcount,
+#workspaces,
+#taskbar,
+#language {
+  background-color: rgba(3, 35, 67, 0.351);
+  padding: 0.5rem 1rem;
+  margin: 1px 0;
+}
+
+#language {
+  color: #f2e5bc;
+  border-radius: 5px;
+}
+
+#clock {
+  border-radius: 5px;
+}
+
+#pulseaudio {
+  color: #ea999c;
+  border-radius: 5px 0px 0px 5px;
+}
+
+#custom-power {
+  margin-right: 1rem;
+  border-radius: 0px 5px 5px 0px;
+  color: #e78284;
+}

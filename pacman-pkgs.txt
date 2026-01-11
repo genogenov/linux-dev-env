@@ -1,5 +1,5 @@
 #drivers and tools
-pipewire wireplumber openssh nerd-fonts noto-fonts fzf pipewire-pulse sof-firmware gnome-keyring libsecret nvidia-open nvidia-utils mesa vulkan-intel libva-nvidia-driver intel-media-driver lib32-vulkan-intel vulkan-intel
+git base-devel curl reflector pipewire wireplumber openssh nerd-fonts noto-fonts fzf pipewire-pulse sof-firmware gnome-keyring libsecret nvidia-open nvidia-utils mesa vulkan-intel libva-nvidia-driver intel-media-driver lib32-vulkan-intel vulkan-intel
 
 #apps and nice-to-haves
 alacritty ghostty gimp nvtop network-manager-applet usbutils pciutils brightnessctl polkit zsh zsh-completions tldr

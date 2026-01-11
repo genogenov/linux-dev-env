@@ -1,0 +1,177 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "custom/uptime",
+    "hyprland/language",
+    "hyprland/workspaces",
+    "hyprland/windowcount"
+    //"hyprland/window"
+  ],
+  "modules-center": [
+    //"wlr/taskbar",
+    "tray",
+    "clock"
+    // "custom/weather"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "custom/power"
+  ],
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 20,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [],
+    "app_ids-mapping": {},
+    "rewrite": {}
+  },
+  "hyprland/windowcount": {
+    "format": "[{}]",
+    "format-empty": "[X]",
+    //"format-windowed": "[T]",
+    "format-fullscreen": "[(F){}]",
+    "separate-outputs": true
+  },
+  "hyprland/window": {
+    "format": "👉 {}",
+    "max-length": 30,
+    "rewrite": {
+      //"(.*) — Mozilla Firefox": "🌎 $1",
+      //"(.*) - fish": "> [$1]"
+    },
+    "separate-outputs": true
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "us",
+    "format-bg": "bg",
+    //"format-tr": "As bayrakları",
+    "keyboard-name": "keychron-keychron-q6-he-8k-keyboard"
+  },
+  "hyprland/workspaces": {
+    "format": "{name}: {windows}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    },
+    "workspace-taskbar": {
+      "enable": true,
+      "format": "{icon}",
+      "update-active-window": true
+    },
+    "all-outputs": true
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+  "custom/music": {
+    "format": "  {}",
+    "escape": true,
+    "interval": 5,
+    "tooltip": false,
+    "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
+    "on-click": "playerctl play-pause",
+    "max-length": 50
+  },
+  "clock": {
+    "format": "{:%d/%m/%Y - %H:%M(%Z%Oz)}",
+    "timezones": [
+      "America/Los_Angeles",
+      "Europe/Sofia"
+    ],
+    "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+      "on-click-middle": "tz_up"
+    }
+  },
+  "network": {
+    "format-wifi": "󰤢 {bandwidthUpBytes} {bandwidthDownBytes}",
+    "format-ethernet": "󰈀 {bandwidthUpBytes} {bandwidthDownBytes}",
+    "format-disconnected": "󰤠 No Network",
+    "interval": 15,
+    "tooltip": false,
+    "max-length": 20
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ]
+  },
+  "memory": {
+    "interval": 30,
+    "format": "  {used:0.1f}G/{total:0.1f}G"
+  },
+  "custom/uptime": {
+    "format": "{}",
+    "interval": 60,
+    "exec": "sh -c '(uptime -p)'"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        " "
+      ],
+      "alsa_output.usb-SteelSeries_Arctis_Nova_Pro_Wireless-00.analog-stereo": [
+        ""
+      ]
+    },
+    "on-click": "pwvucontrol"
+  },
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout &",
+    "format": "⏻"
+  },
+  //  "custom/docker": {
+  //    "format": "{}",
+  //   "return-type": "json",
+  //  "interval": 10,
+  //    "exec": "$(pwd)/scripts/docker-stats/docker-stats",
+  //    "tooltip": true
+  //  },
+  //  "custom/weather": {
+  //   "format": "{}",
+  //  "tooltip": true,
+  //    "interval": 1800,
+  //    "exec": "$(pwd)/scripts/weather-stats/weather-stats",
+  //    "return-type": "json"
+  //  }
+}

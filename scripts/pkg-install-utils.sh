@@ -1,10 +1,10 @@
 #! /usr/bin/env bash
+[[ -n "${_PKG_INSTALL_UTILS_SH_INCLUDED_-}" ]] && return
+_PKG_INSTALL_UTILS_SH_INCLUDED_=1
+
 LIB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 source "$LIB_DIR/utils.sh"
-
-[[ -n "${_PKG_INSTALL_UTILS_SH_INCLUDED_-}" ]] && return
-_PKG_INSTALL_UTILS_SH_INCLUDED_=1
 
 update_system() {
    info "Updating system packages"
