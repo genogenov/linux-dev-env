@@ -12,6 +12,8 @@ This repository contains everything needed to set up a fully functional Arch Lin
 - **System configuration files** for various services
 - **Custom shell configurations**
 
+📌 See [TODO.md](TODO.md) for planned features and improvements.
+
 ## Quick Start
 
 The main setup script provides three commands for system configuration:
@@ -35,7 +37,7 @@ linux-dev-env/
 ├── setup-arch.m4           # Source template for setup script
 ├── pacman-pkgs.txt         # Official repository packages list
 ├── aur-pkgs.txt            # AUR packages list
-├── todo.txt                # Project tasks and todos
+├── TODO.md                 # Planned features and improvements
 │
 ├── etc/                    # System configuration files (/etc)
 │   ├── greetd/            # Display manager configuration
