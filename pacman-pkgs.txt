@@ -2,10 +2,13 @@
 git base-devel curl reflector pipewire wireplumber openssh nerd-fonts noto-fonts noto-fonts-emoji fzf pipewire-pulse sof-firmware gnome-keyring libsecret nvidia-open nvidia-utils mesa vulkan-intel libva-nvidia-driver intel-media-driver lib32-vulkan-intel vulkan-intel
 
 #apps and nice-to-haves
-alacritty ghostty gimp nvtop network-manager-applet usbutils pciutils brightnessctl polkit zsh zsh-completions tldr
+alacritty ghostty socat gimp nvtop network-manager-applet usbutils pciutils brightnessctl polkit zsh zsh-completions tldr
 
 #hyprland
 hyprland dolphin qt5-wayland qt6-wayland xdg-desktop-portal-hyprland mako hyprpolkitagent hypridle hyprlock waybar hyprpaper hyprpwcenter hyprlauncher
 
 #greeter
 greetd greetd-regreet
+
+#gaming
+steam gamescope
