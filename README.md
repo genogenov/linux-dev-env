@@ -34,7 +34,8 @@ The main setup script provides three commands for system configuration:
 ```
 linux-dev-env/
 ├── setup-arch              # Main setup script (generated from .m4)
-├── setup-arch.m4           # Source template for setup script
+│
+script
 ├── pacman-pkgs.txt         # Official repository packages list
 ├── aur-pkgs.txt            # AUR packages list
 ├── TODO.md                 # Planned features and improvements
@@ -68,7 +69,7 @@ linux-dev-env/
 ## cripts
 
 ### Main Setup Script (`setup-arch`)
-Generated from `setup-arch.m4` using **argbash** for robust argument parsing:
+Generated arg parsing using **argbash** :
 - **system** - Initialize base system, configure time sync, install AUR helper (yay)
 - **install** - Install all packages from pacman-pkgs.txt and aur-pkgs.txt
 - **config** - Deploy configuration files to appropriate system locations

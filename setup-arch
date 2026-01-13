@@ -159,10 +159,9 @@ trap 'handle_error' ERR
 DRY_RUN=false
 [[ $_arg_dry_run == "on" ]] && DRY_RUN=true
 
-warn "Value of 'ROOT_DIR': $ROOT_DIR"
-warn "Value of 'DRY_RUN': $DRY_RUN"
-warn "'dry-run' is $_arg_dry_run"
-warn "Value of 'command': $_arg_command"
+warn "'root-dir': $ROOT_DIR"
+warn "'dry-run': $_arg_dry_run"
+warn "'command': $_arg_command"
 
 case "$_arg_command" in
 system)
