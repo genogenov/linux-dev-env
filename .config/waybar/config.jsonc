@@ -19,6 +19,8 @@
     "network",
     "cpu",
     "memory",
+    "battery",
+    "power-profiles-daemon",
     "custom/power"
   ],
   "wlr/taskbar": {
@@ -154,6 +156,55 @@
       ]
     },
     "on-click": "pwvucontrol"
+  },
+  "battery": {
+    "interval": 120,
+    "states": {
+      "warning": 40,
+      "critical": 15
+    },
+    "format": "{icon}",
+    "tooltip-format": "Battery: {capacity}%\nPower Draw: {power}W\n{timeTo}\nCycles: {cycles}\nHealth: {health}%",
+    "format-icons": {
+      "default": [
+        "󰂎",
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "charging": [
+        "󰢟",
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ]
+    },
+    "max-length": 25
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
   },
   "custom/power": {
     "tooltip": false,

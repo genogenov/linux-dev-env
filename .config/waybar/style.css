@@ -78,6 +78,7 @@ button {
 #windowcount,
 #workspaces,
 #taskbar,
+#power-profiles-daemon,
 #language {
   background-color: rgba(3, 35, 67, 0.351);
   padding: 0.5rem 1rem;
@@ -102,4 +103,17 @@ button {
   margin-right: 1rem;
   border-radius: 0px 5px 5px 0px;
   color: #e78284;
+}
+
+#battery {
+  color: #99f684;
+  border-radius: 5px;
+}
+
+#battery.warning {
+  color: #f7db62;
+}
+
+#battery.critical {
+  color: #fb6b6b;
 }
