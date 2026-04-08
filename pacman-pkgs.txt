@@ -12,3 +12,6 @@ greetd greetd-regreet
 
 #gaming
 steam gamescope
+
+#raptor lake laptop specific
+i2c-tools
