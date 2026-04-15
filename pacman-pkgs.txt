@@ -8,7 +8,7 @@ alacritty ghostty wev wl-clipboard socat gimp nvtop network-manager-applet usbut
 hyprland dolphin grim slurp hyprpicker hyprshot jq libnotify qt5-wayland qt6-wayland xdg-desktop-portal-hyprland mako hyprpolkitagent hypridle hyprlock waybar hyprpaper hyprpwcenter hyprlauncher
 
 #greeter
-greetd greetd-regreet
+greetd greetd-regreet greetd-tuigreet
 
 #gaming
 steam gamescope
