@@ -140,7 +140,9 @@
   "custom/uptime": {
     "format": "{}",
     "interval": 60,
-    "exec": "sh -c '(uptime -p)'"
+    "return-type": "json",
+    "exec": "read -r seconds _ < /proc/uptime; seconds=${seconds%.*};txt=\"up \"; minutes=seconds/60;hours=minutes/60;days=$((hours/24));[[ $days -ge 1 ]] && txt+=\"${days}d \";[[ $((hours % 24)) -ge 1 ]] && txt+=\"$((hours % 24))h \";[[ $((minutes % 60)) -ge 1 ]] && txt+=$(( minutes % 60))m;printf '{\"text\": \"%s\", \"tooltip\": \"%s\"}' \"$txt\" \"Booted at: $(uptime -s)\""
+    //"exec": "sh -c '(uptime -p)'"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
