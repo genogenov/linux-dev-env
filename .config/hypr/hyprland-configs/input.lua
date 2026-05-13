@@ -2,9 +2,10 @@ MainMod = "SUPER"
 
 ---@param keys string - the key combination to bind, e.g. "SUPER + Q"
 ---@param dispatcher HL.Dispatcher|function, opts?: HL.BindOptions
+---@param opts? HL.BindOptions
 ---@return HL.Keybind
-function BindMainMod(keys, dispatcher)
-    return hl.bind(MainMod .. " + " .. keys, dispatcher)
+function BindMainMod(keys, dispatcher, opts)
+    return hl.bind(MainMod .. " + " .. keys, dispatcher, opts)
 end
 
 hl.config({
@@ -73,8 +74,8 @@ BindMainMod("SHIFT + 9", hl.dsp.window.move({workspace=9}))
 BindMainMod("SHIFT + 0", hl.dsp.window.move({workspace=10}))
 
 BindMainMod("V", hl.dsp.exec_cmd(Terminal .. " --class=com.h.clipse -e \"clipse\""))
-BindMainMod("S", hl.dsp.workspace.toggle_special("special1"))
-BindMainMod("SHIFT + S", hl.dsp.window.move({workspace="special1"}))
+-- BindMainMod("S", hl.dsp.workspace.toggle_special("special1"))
+-- BindMainMod("SHIFT + S", hl.dsp.window.move({workspace="special1"}))
 
 BindMainMod("mouse_down",hl.dsp.focus({ workspace = "e+1" }))
 BindMainMod("mouse_up", hl.dsp.window.move({ workspace = "e-1" }))
@@ -84,8 +85,8 @@ hl.config({
         drag_threshold = 10 -- Fire a drag event only after dragging for more than 10px
     }
 })
-hl.bind("ALT + mouse:272", hl.dsp.window.drag(), { mouse = true })    -- ALT + LMB: Move a window by dragging more than 10px.
-hl.bind("ALT + mouse:272", hl.dsp.window.resize(), { mouse = true })  -- ALT + LMB: Floats a window by clicking
+BindMainMod("mouse:272", hl.dsp.window.drag(), { mouse = true })    -- ALT + LMB: Move a window by dragging more than 10px.
+BindMainMod("mouse:273", hl.dsp.window.resize(), { mouse = true })  -- ALT + LMB: Floats a window by clicking
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { repeating = true })
