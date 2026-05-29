@@ -97,6 +97,11 @@ hl.window_rule({
     content="game"
 })
 
+hl.window_rule({
+    match = { class = "^(gcr-prompter)$" },
+    stay_focused = true,
+})
+
 hl.workspace_rule({
     workspace = "1",
     monitor = Monitor1
