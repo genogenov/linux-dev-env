@@ -5,7 +5,7 @@ git base-devel power-profiles-daemon curl reflector pipewire wireplumber openssh
 alacritty ghostty wev wl-clipboard socat gimp nvtop network-manager-applet usbutils pciutils brightnessctl polkit zsh zsh-completions tldr
 
 #hyprland
-hyprland dolphin grim slurp hyprpicker hyprshot jq libnotify qt5-wayland qt6-wayland xdg-desktop-portal-hyprland mako hyprpolkitagent hypridle hyprlock waybar hyprpaper hyprpwcenter hyprlauncher
+hyprland dolphin grim slurp hyprpicker hyprshot jq libnotify qt5-wayland qt6-wayland xdg-desktop-portal-hyprland mako hyprpolkitagent hypridle hyprlock swaylock waybar hyprpaper hyprpwcenter hyprlauncher
 
 #greeter
 greetd greetd-regreet greetd-tuigreet
