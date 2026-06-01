@@ -104,17 +104,20 @@ hl.window_rule({
 
 hl.workspace_rule({
     workspace = "1",
-    monitor = Monitor1
+    monitor = Monitor1,
+    default = true,
 })
 
 hl.workspace_rule({
     workspace = "2",
-    monitor = Monitor2
+    monitor = Monitor2,
+    default = true,
 })
 
 hl.workspace_rule({
     workspace = "3",
-    monitor = Monitor3
+    monitor = Monitor3,
+    default = true,
 })
 
 hl.workspace_rule({

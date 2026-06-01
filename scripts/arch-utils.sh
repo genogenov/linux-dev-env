@@ -44,6 +44,14 @@ setup_kernel_modules() {
         info "Regenerating initramfs..."
         run sudo mkinitcpio -P
         success "Initramfs regenerated successfully."
+
+        if read_yes_no "Enable NVIDIA suspend/resume/hibernate services? (required for NVreg_PreserveVideoMemoryAllocations to work)"; then
+            info "Enabling nvidia-suspend.service, nvidia-resume.service, nvidia-hibernate.service..."
+            run sudo systemctl enable nvidia-suspend.service nvidia-resume.service nvidia-hibernate.service
+            success "NVIDIA suspend services enabled."
+        else
+            info "Skipping NVIDIA suspend services setup."
+        fi
     else
         info "Skipping modprobe modules setup."
     fi
