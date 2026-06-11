@@ -95,19 +95,18 @@ hl.on("config.reloaded", function()
     schedule_apply()
 end)
 
--- Apply once synchronously on script load. This pins the layout for outputs
--- already present. Late outputs trigger monitor.added -> schedule_apply.
-apply_layout()
-
--- Cold-boot quirk: even after the initial apply + any monitor.added events,
--- waybar/hyprpaper sometimes end up with no layer surface on eDP-1. Doing
--- `hyprctl reload` fixes it instantly because it forces a fresh hl.monitor()
--- call for every output, which makes Hyprland re-emit wl_output events that
--- the layer-shell clients react to. Mimic that once, a few seconds after
--- autostart has launched everything, so cold boot matches the reload path.
+-- Cold-boot fix: on a fresh Hyprland session, waybar and hyprpaper are
+-- launched from autostart on hyprland.start, but Hyprland enumerates outputs
+-- progressively -- eDP-1 typically arrives after that event fires, so those
+-- clients bind to layer surfaces only on the externals. Calling hl.monitor
+-- again after a short delay forces fresh wl_output configures (same effect
+-- as `hyprctl reload`, which is what fixes it manually).
 hl.on("hyprland.start", function()
     hl.timer(function()
-        last_signature = nil -- force a real re-apply, not a skip
+        last_signature = nil
         apply_layout()
     end, { timeout = 3000, type = "oneshot" })
 end)
+
+-- Apply once synchronously on script load, BEFORE autostart runs.
+apply_layout()

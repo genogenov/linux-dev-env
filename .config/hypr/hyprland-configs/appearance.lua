@@ -11,6 +11,9 @@ hl.config({
             inactive_border = "rgba(595959aa)",
         }
     },
+    cursor = {
+        -- no_hardware_cursors = true,
+    },
     xwayland = {
         force_zero_scaling = true
     },
@@ -51,7 +54,7 @@ hl.config({
 
 hl.config({
     misc = {
-        disable_hyprland_logo = false,
+        disable_hyprland_logo = true,
         force_default_wallpaper = 0
     }
 })
