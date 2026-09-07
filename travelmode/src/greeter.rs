@@ -19,8 +19,8 @@ pub struct State {
 }
 
 impl State {
-    pub fn is_active(&self) -> bool {
-        self.active == "active"
+    pub fn is_enabled(&self) -> bool {
+        self.enabled == "enabled"
     }
 }
 

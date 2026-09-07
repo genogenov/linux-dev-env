@@ -167,7 +167,10 @@ fn status() {
             unit::LEGACY_DROPIN_DIR
         ));
     }
-    if u.armed() && g.is_active() {
-        ui::warn("greetd is running while travel mode is armed - a reboot would land on the greeter");
+    // `disable` alone is what makes the next boot greeter-free, so what matters
+    // here is greetd's file state, not whether it happens to be running: arming
+    // from a live session deliberately leaves the greeter up until the reboot.
+    if u.armed() && g.is_enabled() {
+        ui::warn("greetd is enabled while travel mode is armed - the next boot would land on the greeter");
     }
 }
