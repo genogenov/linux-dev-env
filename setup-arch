@@ -205,6 +205,8 @@ config)
 	info "Copying config files to /etc/ ..."
 	run sudo cp -r -v $ROOT_DIR/etc/ /
 	success "Config /etc files copied successfully."
+
+	run setup_travel_mode
 	;;
 *)
 	error "Unsupported command: $_arg_command"

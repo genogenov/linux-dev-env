@@ -38,6 +38,9 @@ hl.config({
     animations = {
         enabled = false
     },
+    -- render = {
+    --     direct_scanout = false
+    -- }
 })
 
 hl.config({
@@ -55,6 +58,7 @@ hl.config({
 hl.config({
     misc = {
         disable_hyprland_logo = true,
-        force_default_wallpaper = 0
+        force_default_wallpaper = 0,
+        disable_splash_rendering = true
     }
 })

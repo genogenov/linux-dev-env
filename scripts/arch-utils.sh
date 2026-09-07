@@ -75,3 +75,45 @@ setup_pacman_mirrorlist() {
         info "Skipping pacman mirrorlist setup."
     fi
 }
+
+setup_travel_mode() {
+    if ! read_yes_no "Install the 'travelmode' CLI (keeps this machine awake and reachable while you are away)?"; then
+        info "Skipping travelmode setup."
+        return 0
+    fi
+
+    if ! command -v cargo >/dev/null 2>&1; then
+        info "Rust toolchain not found. Installing rustup..."
+        run sudo pacman -S --noconfirm --needed rustup
+        run rustup default stable
+        success "Rust toolchain installed successfully."
+    fi
+
+    info "Building travelmode..."
+    run cargo build --release --locked --manifest-path "$ROOT_DIR/travelmode/Cargo.toml"
+
+    info "Installing travelmode to /usr/local/bin ..."
+    run sudo install -Dm755 "$ROOT_DIR/travelmode/target/release/travelmode" /usr/local/bin/travelmode
+    success "travelmode installed successfully."
+
+    # stay-awake.service ships with the rest of etc/; make systemd pick it up.
+    info "Reloading systemd units..."
+    run sudo systemctl daemon-reload
+
+    # Travel mode used to carry its side effects as ExecStartPre/ExecStopPost in
+    # a drop-in. They live in the CLI now, and the leftover would override the
+    # shipped unit and undo travel mode behind the tool's back.
+    local legacy_dropin="/etc/systemd/system/stay-awake.service.d"
+    if [[ -d "$legacy_dropin" ]]; then
+        warn "Found legacy drop-in $legacy_dropin, superseded by the travelmode CLI."
+        if read_yes_no "Remove $legacy_dropin?"; then
+            run sudo rm -rf "$legacy_dropin"
+            run sudo systemctl daemon-reload
+            success "Legacy drop-in removed."
+        else
+            warn "Keeping $legacy_dropin - it still overrides the shipped unit."
+        fi
+    fi
+
+    info "Installing travel mode does not arm it. Arm with 'sudo travelmode on', check with 'travelmode status'."
+}

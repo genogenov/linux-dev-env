@@ -1,0 +1,15 @@
+[package]
+name = "travelmode"
+version = "0.1.0"
+edition = "2021"
+description = "Arm/disarm travel mode on dirty-arch: keep the laptop awake and reachable over SSH while away"
+license = "MIT"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+strip = true

@@ -1,0 +1,26 @@
+# Travel mode's inhibitor, and nothing else.
+#
+# Everything reversible - wifi powersave, the greeter - is applied by the
+# `travelmode` CLI rather than by ExecStartPre/ExecStopPost here, so that a
+# restart of a dead inhibitor can not flap the wifi or bring the greeter back.
+#
+# 'idle' is deliberately not inhibited: hypridle should still dim, lock and
+# blank the screen while the machine sits awake and alone.
+
+[Unit]
+Description=Travel mode - block sleep and lid suspend (idle is left to hypridle)
+
+[Service]
+ExecStart=/usr/bin/systemd-inhibit \
+  --what=sleep:handle-lid-switch \
+  --who="travel" --why="Remote access while away" \
+  --mode=block \
+  sleep infinity
+
+# Without this, an inhibitor that dies takes travel mode with it silently and
+# the laptop is free to suspend - losing exactly the remote access it is here for.
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

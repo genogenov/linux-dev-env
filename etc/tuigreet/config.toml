@@ -1,0 +1,43 @@
+# [theme]
+# border = "white"
+# text = "green"
+# time = "blue"
+# container = "black"
+# title = "cyan"
+# greet = "yellow"
+# prompt = "magenta"
+# input = "white"
+# action = "bright-blue"
+# button = "bright-red"
+
+[layout]
+width = 140
+
+[display]
+show_time = true
+greeting = "Wake up, Neo...\nThe Matrix has you..."
+align_greeting = "center"
+issue = false
+
+[remember]
+username = true
+session = true
+user_session = false
+
+[secret]
+mode = "characters"  # "hidden" or "characters"
+characters = "*"
+
+[background]
+kind = "matrix"        # or "none" to disable
+fps = 30
+
+[background.matrix]
+head_color = "#CCFFCC"
+bright_color = "#33FF66"
+dim_color = "#006622"
+min_length = 6
+max_length = 18
+min_speed = 0.30     # rows per frame
+max_speed = 0.80
+mutate_chance = 0.08 # per-cell glyph shimmer probability
